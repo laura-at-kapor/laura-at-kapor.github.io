@@ -111,6 +111,7 @@
 				rows={filteredData} 
 				classNameTable={["table table-striped"]}
 				classNameThead={["table-primary"]}
+				classNameSelect={["custom-select"]}
 			/>
 		{:else if selectedState}
 			<p>No data available for the selected state.</p>
