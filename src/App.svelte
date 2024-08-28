@@ -90,7 +90,6 @@
 	}
 </script>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
 <div class="container">
 	<h1>NCES IDs for Schools</h1>
 	<p>This table will help you find the NCES ID of your school. To begin, select your state.</p>
@@ -122,16 +121,21 @@
 <!-- TODO: figure out if it's worth enabling copy box -->
 
 <style>
+	.container {
+		margin-top: 20px;
+	}
+
 	:global(.text-left) {
 		text-align: left;
 	}
 
-	.selector{
+	:global(.selector) {
 		margin-bottom: 10px;
 	}
 
 	:global(.search-filter input) {
-		width: 100%;
+		width: 100% !important;
+		box-sizing: border-box;
 	}
 	
 </style>
