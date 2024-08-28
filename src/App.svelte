@@ -119,7 +119,7 @@
 	</div>
 </div>
 
-<!-- TODO: figure out if it's worth enabling copy box, add instructions -->
+<!-- TODO: figure out if it's worth enabling copy box -->
 
 <style>
 	:global(.text-left) {
