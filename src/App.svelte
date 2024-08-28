@@ -138,9 +138,5 @@
 		width: 100% !important;
 		box-sizing: border-box;
 	}
-
-	:global(.custom-input) {
-		width: 100%;
-	}
 	
 </style>
