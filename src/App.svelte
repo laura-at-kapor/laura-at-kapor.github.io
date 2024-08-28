@@ -111,7 +111,7 @@
 				rows={filteredData} 
 				classNameTable={["table table-striped"]}
 				classNameThead={["table-primary"]}
-				classNameSelect={["custom-select"]}
+				classNameInput={["custom-input"]}
 			/>
 		{:else if selectedState}
 			<p>No data available for the selected state.</p>
@@ -137,6 +137,10 @@
 	:global(.search-filter input) {
 		width: 100% !important;
 		box-sizing: border-box;
+	}
+
+	:global(.custom-input) {
+		width: 100%;
 	}
 	
 </style>
