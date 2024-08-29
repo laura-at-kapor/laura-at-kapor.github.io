@@ -28,7 +28,7 @@
 			sortable: true,
 			//filterOptions: generateFilter("school"),
 			searchValue: (v, s) =>
-				v.school.toString().toLowerCase().startsWith(s.toLowerCase()),
+				v.school.toString().toLowerCase().includes(s.toLowerCase()),
 			filterPlaceholder: "Search for your school...",
 			headerClass: "text-left",
 			headerFilterClass: "search-filter"
