@@ -92,7 +92,7 @@
 
 <div class="container">
 	<h1>NCES IDs for Schools</h1>
-	<p>This table will help you find the NCES ID of your school. To begin, select your state.</p>
+	<p>This table will help you find the NCES ID for your school. To begin, select your state.</p>
 	<div class="selector">
 	<select id="state" bind:value={selectedState}>
 		<option value="">-- Select a State --</option>
@@ -135,8 +135,12 @@
 	}
 
 	:global(.search-filter input) {
-		width: 100% !important;
+		width: 100%;
 		box-sizing: border-box;
+	}
+
+	:global(#state) {
+		padding: 5px;
 	}
 	
 </style>
