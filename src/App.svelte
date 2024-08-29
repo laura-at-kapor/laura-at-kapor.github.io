@@ -105,7 +105,7 @@
 	<!-- Conditionally Display the Table -->
 	 <div class="table">
 		{#if selectedState && filteredData.length > 0}
-			<p>Next, search for your school. Be sure to confirm the district and county before copying the NCES ID.</p>
+			<p>Next, search for your school. Be sure to confirm the district and/or county before copying the NCES ID.</p>
 			<SvelteTable 
 				{columns} 
 				rows={filteredData} 
