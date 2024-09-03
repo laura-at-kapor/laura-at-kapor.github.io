@@ -4,4 +4,4 @@ const app = new App({
 	target: document.body,
 });
 
-export { default as app } from './App.svelte';
+export default app;
