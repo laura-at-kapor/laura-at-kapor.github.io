@@ -1,23 +1,6 @@
 <script>
 	import SvelteTable from "./SvelteTable.svelte";
-	import { generateFilter } from "./helper.js";
 	//import data from "./data.js";
-	import CopyToClipboardComponent from "./components/CopyToClipboardComponent.svelte";
-
-	function copyToClipboard() {
-        // Get the text field
-        var copyText = document.getElementsByClassName("nces_id");
-
-        // Select the text field
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); // For mobile devices
-
-        // Copy the text inside the text field
-        navigator.clipboard.writeText(copyText.value);
-
-        // Alert the copied text
-        alert("Copied the text: " + copyText.value);
-    };
 
 	// define column configs
 	const columns = [
@@ -73,8 +56,17 @@
 	]
 
 	let selectedState = "";
-	let data = [];
+	// let data = [];
 	let filteredData = [];
+	let states = [];
+
+	// Load only the state information initially
+	async function loadStateList() {
+		const module = await import('./data.js');
+		const data = module.default;
+		// Extract unique states from data
+		states = Array.from(new Set(data.map(row => row.state)));
+	}
 
 	// load data
 	async function loadData(state) {
@@ -98,6 +90,9 @@
 	// $: if (selectedState) {
 	// 	filteredData = data.filter((row) => row.state === selectedState);
 	// }
+
+	// Load state list when component initializes
+	loadStateList();
 </script>
 
 <div class="container">
@@ -106,7 +101,7 @@
 	<div class="selector">
 	<select id="state" bind:value={selectedState} on:change={() => loadData(selectedState)}>
 		<option value="">-- Select a State --</option>
-		{#each Array.from(new Set(data.map((row) => row.state))) as state}
+		{#each states as state}
 			<option value={state}>{toTitleCase(state)}</option>
 		{/each}
 	</select>
@@ -128,8 +123,6 @@
 		{/if}
 	</div>
 </div>
-
-<!-- TODO: figure out if it's worth enabling copy box -->
 
 <style>
 	.container {
