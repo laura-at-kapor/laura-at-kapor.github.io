@@ -62,20 +62,28 @@
 
 	// Load only the state information initially
 	async function loadStateList() {
-		const module = await import('./data.js');
-		const data = module.default;
-		// Extract unique states from data
-		states = Array.from(new Set(data.map(row => row.state)));
+		try {
+			const module = await import('./data.js');
+			const data = module.default;
+			console.log('Loaded state list:', data);
+			states = Array.from(new Set(data.map(row => row.state)));
+		} catch (error) {
+			console.error('Error loading state list:', error);
+		}
 	}
 
 	// load data
 	async function loadData(state) {
-		// Dynamically import the data only when a state is selected
-		const module = await import('./data.js');
-		data = module.default;
-		// Filter the data based on the selected state
-		filteredData = data.filter(row => row.state === state);
-	}
+			try {
+				console.log('Loading data for state:', state);
+				const module = await import('./data.js');
+				const data = module.default;
+				filteredData = data.filter(row => row.state === state);
+				console.log('Filtered data:', filteredData);
+			} catch (error) {
+				console.error('Error loading data:', error);
+			}
+		}
 
 	// Function to convert to title case
 	function toTitleCase(str) {
