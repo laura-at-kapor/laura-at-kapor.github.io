@@ -1,7 +1,7 @@
 <script>
 	import SvelteTable from "./SvelteTable.svelte";
 	import { generateFilter } from "./helper.js";
-	import data from "./data.js";
+	//import data from "./data.js";
 	import CopyToClipboardComponent from "./components/CopyToClipboardComponent.svelte";
 
 	function copyToClipboard() {
@@ -73,7 +73,14 @@
 	]
 
 	let selectedState = "";
+	let data = [];
 	let filteredData = [];
+
+	// load data
+	async function loadData(state) {
+		const module = await import('./data.js');
+		data = module.default.filter(item => item.state === state);
+	}
 
 	// Function to convert to title case
 	function toTitleCase(str) {
@@ -94,7 +101,7 @@
 	<h1>NCES IDs for Schools</h1>
 	<p>This table will help you find the NCES ID for your school. To begin, select your state.</p>
 	<div class="selector">
-	<select id="state" bind:value={selectedState}>
+	<select id="state" bind:value={selectedState} on:change={() => loadData(selectedState)}>
 		<option value="">-- Select a State --</option>
 		{#each Array.from(new Set(data.map((row) => row.state))) as state}
 			<option value={state}>{toTitleCase(state)}</option>
