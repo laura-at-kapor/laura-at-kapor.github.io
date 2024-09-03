@@ -78,8 +78,11 @@
 
 	// load data
 	async function loadData(state) {
+		// Dynamically import the data only when a state is selected
 		const module = await import('./data.js');
-		data = module.default.filter(item => item.state === state);
+		data = module.default;
+		// Filter the data based on the selected state
+		filteredData = data.filter(row => row.state === state);
 	}
 
 	// Function to convert to title case
@@ -92,9 +95,9 @@
   	}
 
 	// filter table
-	$: if (selectedState) {
-		filteredData = data.filter((row) => row.state === selectedState);
-	}
+	// $: if (selectedState) {
+	// 	filteredData = data.filter((row) => row.state === selectedState);
+	// }
 </script>
 
 <div class="container">
