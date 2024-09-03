@@ -34,7 +34,7 @@ export default {
 	output: {
 		sourcemap: true,
 		// format: 'iife',
-		format: 'cjs',
+		format: 'esm',
 		name: 'app',
 		file: 'build/bundle.js',
 		inlineDynamicImports: true
