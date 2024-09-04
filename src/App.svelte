@@ -1,6 +1,5 @@
 <script>
 	import SvelteTable from "./SvelteTable.svelte";
-	//import data from "./data.js";
 
 	// define column configs
 	const columns = [
@@ -56,7 +55,6 @@
 	]
 
 	let selectedState = "";
-	// let data = [];
 	let filteredData = [];
 	let states = [];
 

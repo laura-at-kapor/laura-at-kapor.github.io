@@ -37,7 +37,7 @@ export default {
 		format: 'cjs',
 		name: 'app',
 		file: 'build/bundle.js',
-		inlineDynamicImports: true
+		inlineDynamicImports: true,
 	},
 	plugins: [
 		svelte({
@@ -72,7 +72,12 @@ export default {
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
-		production && terser()
+		production && terser(),
+
+		// suggested code to get the base path
+		replace({
+			'process.env.BASE_PATH': JSON.stringify('/nces-table/'),
+		  }),
 	],
 	watch: {
 		clearScreen: false
