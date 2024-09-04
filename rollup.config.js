@@ -75,9 +75,9 @@ export default {
 		production && terser(),
 
 		// suggested code to get the base path
-		replace({
-			'process.env.BASE_PATH': JSON.stringify('/nces-table/'),
-		  }),
+		// replace({
+		// 	'process.env.BASE_PATH': JSON.stringify('/nces-table/'),
+		//   }),
 	],
 	watch: {
 		clearScreen: false
