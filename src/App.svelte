@@ -61,10 +61,10 @@
 	// Load only the state information initially
 	async function loadStateList() {
 		try {
-			const module = await import('./data.js');
+			const module = require('./data.js');
 			const data = module.default;
-			console.log('Loaded state list:', data);
 			states = Array.from(new Set(data.map(row => row.state)));
+			console.log('Loaded state list:', states);
 		} catch (error) {
 			console.error('Error loading state list:', error);
 		}
@@ -74,7 +74,7 @@
 	async function loadData(state) {
 			try {
 				console.log('Loading data for state:', state);
-				const module = await import('./data.js');
+				const module = require('./data.js');
 				const data = module.default;
 				filteredData = data.filter(row => row.state === state);
 				console.log('Filtered data:', filteredData);
