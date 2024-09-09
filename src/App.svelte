@@ -1,5 +1,6 @@
 <script>
-	import SvelteTable from "./SvelteTable.svelte";
+	//import SvelteTable from "./SvelteTable.svelte";
+	import SvelteTable from "svelte-table";
 
 	// define column configs
 	const columns = [
