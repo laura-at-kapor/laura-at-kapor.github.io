@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import { createEventDispatcher } from "svelte";
 
   /** @type {TableColumns<any>} */
@@ -443,4 +443,4 @@
   tr th select {
     width: 100%;
   }
-</style>
+</style> -->
