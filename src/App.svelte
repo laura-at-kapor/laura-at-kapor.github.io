@@ -1,5 +1,4 @@
 <script>
-	//import SvelteTable from "./SvelteTable.svelte";
 	import SvelteTable from "svelte-table";
 
 	// define column configs
@@ -48,10 +47,6 @@
 			value: (v) => v.ncessch,
 			class: "nces_id",
 			sortable: true,
-			//renderComponent: {
-			//	component: CopyToClipboardComponent,
-			//	props: { copyToClipboard },
-		//},
 	}
 	]
 
@@ -61,28 +56,17 @@
 
 	// Load only the state information initially
 	async function loadStateList() {
-		try {
-			const module = await import('./data.js');
-			const data = module.default;
-			states = Array.from(new Set(data.map(row => row.state)));
-			console.log('Loaded state list:', states);
-		} catch (error) {
-			console.error('Error loading state list:', error);
-		}
+		const module = await import('./data.js');
+		const data = module.default;
+		states = Array.from(new Set(data.map(row => row.state)));
 	}
 
 	// load data
 	async function loadData(state) {
-			try {
-				console.log('Loading data for state:', state);
-				const module = await import('./data.js');
-				const data = module.default;
-				filteredData = data.filter(row => row.state === state);
-				console.log('Filtered data:', filteredData);
-			} catch (error) {
-				console.error('Error loading data:', error);
-			}
-		}
+		const module = await import('./data.js');
+		const data = module.default;
+		filteredData = data.filter(row => row.state === state);	
+	}
 
 	// Function to convert to title case
 	function toTitleCase(str) {
